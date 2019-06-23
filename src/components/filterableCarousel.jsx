@@ -2,7 +2,6 @@ import React from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import FilterForm from './filterForm.jsx'
 import '@brainhubeu/react-carousel/lib/style.css';
-import { data } from '../index.js'
 
 var myTestData = {
   'data': [{
@@ -29,25 +28,27 @@ var myTestData = {
 }
 
 export class FilterableCarousel extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state =
     {
       data: [],
-      filteredData: [{'title': 'No matching results...','img': 'https://placeimg.com/640/480/any/grayscale','location': ''}],
-      emptyData: [{'title': 'No matching results...','img': 'https://placeimg.com/640/480/any/grayscale','location': ''}]
+      filteredData: [{ 'title': 'No matching results...', 'img': 'https://placeimg.com/640/480/any/grayscale', 'location': '' }],
+      emptyData: [{ 'title': 'No matching results...', 'img': 'https://placeimg.com/640/480/any/grayscale', 'location': '' }]
     };
+    this.filterUpdate = this.filterUpdate.bind(this);
+    this.getDataAsync = this.getDataAsync.bind(this);
   }
 
   componentWillMount () {
-    var data = this.getDataAsync();
+    this.getDataAsync();
 
     this.setState({
       filteredData: []
     })
   }
 
-  filterUpdate = (filterValue) => {
+  filterUpdate (filterValue) {
     let filteredData = this.state.data
     console.debug(this);
     filteredData = filteredData.filter((data) => {
@@ -65,7 +66,7 @@ export class FilterableCarousel extends React.Component {
     })
   }
 
-  getDataAsync = async () => {
+  async getDataAsync () {
     const apiCall = await fetch(this.props.dataUrl);
     const data = await apiCall.json();
     this.setState({
@@ -87,7 +88,7 @@ export class FilterableCarousel extends React.Component {
                     <div className='info_text_container'>
                       <div className='info_title ellipsis'>{item.title}</div>
                       <div className='info_location ellipsis'>
-                        <div><i className="fa" aria-hidden="true">{ item.location ? String.fromCharCode(parseInt('f041;',16)) : ''}</i>&nbsp;{item.location}</div>
+                        <div><i className="fa" aria-hidden="true">{ item.location ? String.fromCharCode(parseInt('f041;', 16)) : ''}</i>&nbsp;{item.location}</div>
                       </div>
                     </div>
                   </div>

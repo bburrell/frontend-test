@@ -1,3 +1,4 @@
+// This component just provides a input text box which can be linked to another component through the onChange
 import React from 'react';
 
 export class FilterForm extends React.Component {
@@ -6,9 +7,11 @@ export class FilterForm extends React.Component {
     this.state = {
       filterText: ''
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange (e) {
     this.setState({
       filterText: e.target.value
     })
