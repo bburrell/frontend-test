@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: rgb(244, 246, 250);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -7,7 +8,70 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.outer_container {
+  padding: 30px;
+  color: gray;
+}
+
+.search_input {
+  padding-bottom: 20px;
+}
+
+.search_input input {
+  font-size: 0.7em;
+  width: 300px;
+}
+
+.results_panel {
+  background: white;
+  padding: 20px;
+}
+
+.panel_header {
+  font-size: 0.9em;
+}
+
+.image_info_slide {
+  margin: 0.9em;
+  border: 1px solid lightgray;
+  max-width: 100%;
+}
+.image_info_slide img {
+  display: block;
+	max-width:100%;
+}
+.image_info_slide .info_panel {
+	background:rgb(244, 246, 250);
+  color:#839192;
+  padding:15px;
+}
+
+.info_title {
+  font-weight: bolder;
+  font-size: 0.7em;
+}
+.info_location div {
+  font-size: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.info_location i {
+  /* display: none; */
+  font-size: 1.2em;
+}
+
+.carousel_arrow_left {
+  height: 100%;
+}
+
+.carousel_arrow_right {
+  height: 100%;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
 }

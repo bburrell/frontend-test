@@ -3,8 +3,36 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import '@brainhubeu/react-carousel/lib/style.css';
+import FilterableCarousel from './components/filterableCarousel.jsx'
+import FilterForm from './components/filterForm';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export var data = {
+  'data': [{
+    'title': 'Middle Harbour Yacht Club',
+    'img': 'https://placeimg.com/640/480/nature',
+    'location': 'The Spit, Sydney NSW'
+  }, {
+    'title': 'Boat Licence Course',
+    'img': 'https://placeimg.com/640/480/tech',
+    'location': 'Maritime Training School, Sydney '
+  }, {
+    'title': 'Corporate Boat Charter',
+    'img': 'https://placeimg.com/640/480/arch',
+    'location': 'Sydney Harbor Escapes, Sydney'
+  }, {
+    'title': 'Pro.Formance Boat Repairs',
+    'img': 'https://placeimg.com/640/480/animals',
+    'location': 'Sydney'
+  }, {
+    'title': 'King St Warf',
+    'img': 'https://placeimg.com/640/480/people',
+    'location': 'Sydney'
+  }]
+}
+
+var fiterableCarousel = ReactDOM.render(<FilterableCarousel dataUrl={`http://demo6045376.mockable.io/carousel`} itemWidth='250'> </FilterableCarousel>, document.getElementById('filterableCarouselContainer'));
+ReactDOM.render(<FilterForm onChange={fiterableCarousel.filterUpdate}> </FilterForm>, document.getElementById('filterForm'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
